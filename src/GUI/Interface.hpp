@@ -8,12 +8,13 @@
 #ifndef INTERFACE_HPP
 #define	INTERFACE_HPP
 
-#include <vector>
+#include <map>
 #include <string>
+#include <vector>
 
 namespace gui
 {
-    class Language;
+    enum class Language;
 
     class Interface
     {

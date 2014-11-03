@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/GUI/Interface.o
+	${OBJECTDIR}/src/GUI/Interface.o \
+	${OBJECTDIR}/src/GUI/Language.o
 
 
 # C Compiler Flags
@@ -67,7 +68,12 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibgui.a: ${OBJECTFILES}
 ${OBJECTDIR}/src/GUI/Interface.o: src/GUI/Interface.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Wall -s -I../../../../../lib/glew-1.10.0/include -I../libfont/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Interface.o src/GUI/Interface.cpp
+	$(COMPILE.cc) -O2 -Wall -s -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Interface.o src/GUI/Interface.cpp
+
+${OBJECTDIR}/src/GUI/Language.o: src/GUI/Language.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/GUI
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -Wall -s -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Language.o src/GUI/Language.cpp
 
 # Subprojects
 .build-subprojects:
