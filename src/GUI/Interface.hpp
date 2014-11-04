@@ -11,18 +11,17 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "Language.hpp"
 
 namespace gui
 {
-    enum class Language;
-
     class Interface
     {
         std::vector<std::u32string> m_labels;
         std::map<std::string, unsigned int> m_identifierPosition;
 
         public:
-            Interface();
+            Interface() = default;
 
             void LoadLanguage( Language const& i_language );
     };
