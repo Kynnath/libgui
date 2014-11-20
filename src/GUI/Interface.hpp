@@ -11,18 +11,19 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "FNT/Face.hpp"
 #include "Language.hpp"
 
 namespace gui
 {
     class Interface
     {
+        fnt::Face fontFace;
         std::vector<std::u32string> m_labels;
         std::map<std::string, unsigned int> m_identifierPosition;
 
         public:
-            Interface() = default;
-
+            Interface();
             void LoadLanguage( Language const& i_language );
     };
 }

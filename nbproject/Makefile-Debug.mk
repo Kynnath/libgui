@@ -35,8 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/GUI/Counter.o \
 	${OBJECTDIR}/src/GUI/Interface.o \
-	${OBJECTDIR}/src/GUI/Language.o
+	${OBJECTDIR}/src/GUI/Language.o \
+	${OBJECTDIR}/src/GUI/Node.o
 
 
 # C Compiler Flags
@@ -65,15 +67,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibgui.a: ${OBJECTFILES}
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibgui.a ${OBJECTFILES} 
 	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibgui.a
 
+${OBJECTDIR}/src/GUI/Counter.o: src/GUI/Counter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/GUI
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Counter.o src/GUI/Counter.cpp
+
 ${OBJECTDIR}/src/GUI/Interface.o: src/GUI/Interface.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Interface.o src/GUI/Interface.cpp
+	$(COMPILE.cc) -g -Wall -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Interface.o src/GUI/Interface.cpp
 
 ${OBJECTDIR}/src/GUI/Language.o: src/GUI/Language.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Language.o src/GUI/Language.cpp
+	$(COMPILE.cc) -g -Wall -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Language.o src/GUI/Language.cpp
+
+${OBJECTDIR}/src/GUI/Node.o: src/GUI/Node.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/GUI
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.10.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libtools/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Node.o src/GUI/Node.cpp
 
 # Subprojects
 .build-subprojects:

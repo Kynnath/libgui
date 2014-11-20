@@ -13,6 +13,10 @@
 
 namespace gui
 {
+    Interface::Interface()
+        : fontFace { "resource/font/ocraext.ttf", 72 }
+    {}
+        
     void Interface::LoadLanguage( Language const& i_language )
     {
         // Text is stored in a csv file sorted with label first, then
