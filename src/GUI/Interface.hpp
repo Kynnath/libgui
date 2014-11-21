@@ -13,6 +13,7 @@
 #include <vector>
 #include "FNT/Face.hpp"
 #include "Language.hpp"
+#include "Node.hpp"
 
 namespace gui
 {
@@ -21,10 +22,12 @@ namespace gui
         fnt::Face fontFace;
         std::vector<std::u32string> m_labels;
         std::map<std::string, unsigned int> m_identifierPosition;
+        Node root;
 
         public:
             Interface();
             void LoadLanguage( Language const& i_language );
+            void Draw() const;
     };
 }
 
