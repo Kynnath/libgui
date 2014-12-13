@@ -14,10 +14,4 @@ namespace gui
         , m_value ( i_value )
         , m_valueString( std::to_string(i_value))
     {}
-
-    void Counter::Draw() const
-    {}
-
-
-
 }

@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include "FNT/Face.hpp"
+#include "GLT/Shader.hpp"
 #include "Language.hpp"
 #include "Node.hpp"
 
@@ -22,10 +23,14 @@ namespace gui
         fnt::Face fontFace;
         std::vector<std::u32string> m_labels;
         std::map<std::string, unsigned int> m_identifierPosition;
-        Node root;
+        std::vector< glt::Shader > m_shaders;
+        Counter m_player;
+        Counter m_ai;
+        /*Node root;*/
 
         public:
             Interface();
+            void Init();
             void LoadLanguage( Language const& i_language );
             void Draw() const;
     };

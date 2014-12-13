@@ -12,7 +12,7 @@
 
 namespace gui
 {
-    class Counter
+    struct Counter
     {
         int m_id;
         int m_value;
@@ -20,7 +20,6 @@ namespace gui
 
         public:
             Counter( int const& i_id, int const& i_value );
-            void Draw() const;
     };
 }
 

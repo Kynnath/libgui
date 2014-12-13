@@ -47,13 +47,18 @@
           <standard>8</standard>
           <incDir>
             <pElem>../../../../../lib/freetype-2.5.3/include</pElem>
-            <pElem>../../../../../lib/glew-1.10.0/include</pElem>
+            <pElem>../../../../../lib/glew-1.11.0/include</pElem>
             <pElem>../libcsv/src</pElem>
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
+            <pElem>../libmatrix/src</pElem>
             <pElem>../libtools/src</pElem>
+            <pElem>../libvector/src</pElem>
           </incDir>
           <commandLine>-Wfatal-errors -Wall -Wextra -pedantic -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wswitch-default -Wfloat-equal -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wlogical-op -Wmissing-declarations -Wmissing-noreturn -Wmissing-format-attribute -Wpacked -Wredundant-decls -Wunreachable-code -Winline -Winvalid-pch -Wvolatile-register-var -Wdisabled-optimization -Wstack-protector</commandLine>
+          <preprocessorList>
+            <Elem>GLEW_STATIC</Elem>
+          </preprocessorList>
           <warningLevel>2</warningLevel>
         </ccTool>
         <archiverTool>
@@ -93,13 +98,18 @@
           <standard>8</standard>
           <incDir>
             <pElem>../../../../../lib/freetype-2.5.3/include</pElem>
-            <pElem>../../../../../lib/glew-1.10.0/include</pElem>
+            <pElem>../../../../../lib/glew-1.11.0/include</pElem>
             <pElem>../libcsv/src</pElem>
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
+            <pElem>../libmatrix/src</pElem>
             <pElem>../libtools/src</pElem>
+            <pElem>../libvector/src</pElem>
           </incDir>
           <commandLine>-Wfatal-errors -Wall -Wextra -pedantic -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wswitch-default -Wfloat-equal -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wlogical-op -Wmissing-declarations -Wmissing-noreturn -Wmissing-format-attribute -Wpacked -Wredundant-decls -Wunreachable-code -Winline -Winvalid-pch -Wvolatile-register-var -Wdisabled-optimization -Wstack-protector</commandLine>
+          <preprocessorList>
+            <Elem>GLEW_STATIC</Elem>
+          </preprocessorList>
           <warningLevel>2</warningLevel>
         </ccTool>
         <fortranCompilerTool>

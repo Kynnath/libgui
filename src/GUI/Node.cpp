@@ -24,7 +24,6 @@ namespace gui
 
     void Node::Draw() const
     {
-        m_counter.Draw();
         for ( auto const& child : m_children )
         {
             child.Draw();
