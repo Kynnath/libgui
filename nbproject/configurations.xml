@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>src/GUI/Counter.hpp</itemPath>
+      <itemPath>src/GUI/GameData.hpp</itemPath>
       <itemPath>src/GUI/Interface.hpp</itemPath>
       <itemPath>src/GUI/Language.hpp</itemPath>
       <itemPath>src/GUI/Node.hpp</itemPath>
@@ -17,6 +18,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>src/GUI/Counter.cpp</itemPath>
+      <itemPath>src/GUI/GameData.cpp</itemPath>
       <itemPath>src/GUI/Interface.cpp</itemPath>
       <itemPath>src/GUI/Language.cpp</itemPath>
       <itemPath>src/GUI/Node.cpp</itemPath>
@@ -67,6 +69,10 @@
       <item path="src/GUI/Counter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/GUI/Counter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/GUI/GameData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/GUI/GameData.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/GUI/Interface.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -124,6 +130,10 @@
       <item path="src/GUI/Counter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/GUI/Counter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/GUI/GameData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/GUI/GameData.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/GUI/Interface.cpp" ex="false" tool="1" flavor2="0">
       </item>

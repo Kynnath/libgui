@@ -18,6 +18,7 @@
 
 namespace gui
 {
+    class GameData;
     class Interface
     {
         fnt::Face fontFace;
@@ -31,6 +32,7 @@ namespace gui
         public:
             Interface();
             void Init();
+            void Update( GameData const& i_data );
             void LoadLanguage( Language const& i_language );
             void Draw() const;
     };
