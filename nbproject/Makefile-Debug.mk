@@ -46,8 +46,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-m64 -Wfatal-errors -Wall -Wextra -pedantic -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wswitch-default -Wfloat-equal -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wlogical-op -Wmissing-declarations -Wmissing-noreturn -Wmissing-format-attribute -Wpacked -Wredundant-decls -Wunreachable-code -Winline -Winvalid-pch -Wvolatile-register-var -Wdisabled-optimization -Wstack-protector
-CXXFLAGS=-m64 -Wfatal-errors -Wall -Wextra -pedantic -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wswitch-default -Wfloat-equal -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wlogical-op -Wmissing-declarations -Wmissing-noreturn -Wmissing-format-attribute -Wpacked -Wredundant-decls -Wunreachable-code -Winline -Winvalid-pch -Wvolatile-register-var -Wdisabled-optimization -Wstack-protector
+CCFLAGS=-m64 -Wfatal-errors -Wall -Wextra -pedantic -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wswitch-default -Wfloat-equal -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wlogical-op -Wmissing-declarations -Wmissing-noreturn -Wmissing-format-attribute -Wpacked -Wredundant-decls -Wunreachable-code -Winvalid-pch -Wvolatile-register-var -Wdisabled-optimization -Wstack-protector -std=c++1y
+CXXFLAGS=-m64 -Wfatal-errors -Wall -Wextra -pedantic -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wswitch-default -Wfloat-equal -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wlogical-op -Wmissing-declarations -Wmissing-noreturn -Wmissing-format-attribute -Wpacked -Wredundant-decls -Wunreachable-code -Winvalid-pch -Wvolatile-register-var -Wdisabled-optimization -Wstack-protector -std=c++1y
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -71,27 +71,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibgui.a: ${OBJECTFILES}
 ${OBJECTDIR}/src/GUI/Counter.o: src/GUI/Counter.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Counter.o src/GUI/Counter.cpp
+	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Counter.o src/GUI/Counter.cpp
 
 ${OBJECTDIR}/src/GUI/GameData.o: src/GUI/GameData.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/GameData.o src/GUI/GameData.cpp
+	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/GameData.o src/GUI/GameData.cpp
 
 ${OBJECTDIR}/src/GUI/Interface.o: src/GUI/Interface.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Interface.o src/GUI/Interface.cpp
+	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Interface.o src/GUI/Interface.cpp
 
 ${OBJECTDIR}/src/GUI/Language.o: src/GUI/Language.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Language.o src/GUI/Language.cpp
+	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Language.o src/GUI/Language.cpp
 
 ${OBJECTDIR}/src/GUI/Node.o: src/GUI/Node.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/GUI
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Node.o src/GUI/Node.cpp
+	$(COMPILE.cc) -g -Wall -DGLEW_STATIC -I../../../../../lib/freetype-2.5.3/include -I../../../../../lib/glew-1.11.0/include -I../libcsv/src -I../libfont/src -I../libgltools/src -I../libmatrix/src -I../libtools/src -I../libvector/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/GUI/Node.o src/GUI/Node.cpp
 
 # Subprojects
 .build-subprojects:

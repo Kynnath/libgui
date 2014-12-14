@@ -18,24 +18,24 @@
 
 namespace gui
 {
-    class GameData;
-    class Interface
-    {
-        fnt::Face fontFace;
-        std::vector<std::u32string> m_labels;
-        std::map<std::string, unsigned int> m_identifierPosition;
-        std::vector< glt::Shader > m_shaders;
-        Counter m_player;
-        Counter m_ai;
-        /*Node root;*/
+  class GameData;
+  class Interface
+  {
+    fnt::Face fontFace;
+    std::vector<std::u32string> m_labels;
+    std::map<std::string, unsigned int> m_identifierPosition;
+    std::vector< glt::Shader > m_shaders;
+    Counter m_player;
+    Counter m_ai;
+    /*Node root;*/
 
-        public:
-            Interface();
-            void Init();
-            void Update( GameData const& i_data );
-            void LoadLanguage( Language const& i_language );
-            void Draw() const;
-    };
+    public:
+      Interface();
+      void Init();
+      void Update( GameData const& i_data );
+      void LoadLanguage( Language const& i_language );
+      void Draw() const;
+  };
 }
 
 #endif	/* INTERFACE_HPP */

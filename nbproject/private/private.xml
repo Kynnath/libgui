@@ -8,6 +8,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/JoPe/Documents/NetBeansProjects/libgui/src/GUI/Counter.cpp</file>
+            <file>file:/C:/Users/JoPe/Documents/NetBeansProjects/libgui/src/GUI/Counter.hpp</file>
+            <file>file:/C:/Users/JoPe/Documents/NetBeansProjects/libgui/src/GUI/GameData.cpp</file>
+            <file>file:/C:/Users/JoPe/Documents/NetBeansProjects/libgui/src/GUI/GameData.hpp</file>
             <file>file:/C:/Users/JoPe/Documents/NetBeansProjects/libgui/src/GUI/Interface.cpp</file>
             <file>file:/C:/Users/JoPe/Documents/NetBeansProjects/libgui/src/GUI/Interface.hpp</file>
         </group>
