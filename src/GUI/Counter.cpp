@@ -9,16 +9,17 @@
 
 namespace gui
 {
-  Counter::Counter( int const& i_id, int const& i_value )
+  Counter::Counter(int i_id, int i_value) // May throw
     : m_id {i_id}
     , m_value {i_value}
     , m_valueString {std::to_string(i_value)}
   {}
   
-  Counter & Counter::operator=(int i_value)
+  Counter & Counter::operator=(int i_value) // May throw (strong)
   {
-    Counter temp (m_id, i_value);
-    std::swap(*this, temp);
+    m_valueString = std::to_string(i_value);
+    m_value = i_value;
+    
     return *this;
   }
 }

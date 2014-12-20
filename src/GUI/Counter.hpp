@@ -19,8 +19,8 @@ namespace gui
     std::string m_valueString;
 
     public:
-      Counter( int const& i_id, int const& i_value );
-      Counter & operator=(int i_value);
+      Counter(int i_id, int i_value);   // May throw
+      Counter & operator=(int i_value); // May throw (strong)
   };
 }
 
