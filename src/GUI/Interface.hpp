@@ -13,6 +13,7 @@
 #include <vector>
 #include "FNT/Face.hpp"
 #include "GLT/Shader.hpp"
+#include "MSG/Messenger.hpp"
 #include "Language.hpp"
 #include "Node.hpp"
 
@@ -21,6 +22,8 @@ namespace gui
   class GameData;
   class Interface
   {
+    msg::Messenger & m_messenger;
+    msg::QueueHandle m_queue;
     fnt::Face fontFace;
     std::vector<std::u32string> m_labels;
     std::map<std::string, unsigned int> m_identifierPosition;
@@ -30,9 +33,9 @@ namespace gui
     /*Node root;*/
 
     public:
-      Interface();
+      Interface(msg::Messenger & i_messenger);
       void Init();
-      void Update( GameData const& i_data );
+      void Update();
       void LoadLanguage( Language const& i_language );
       void Draw() const;
   };

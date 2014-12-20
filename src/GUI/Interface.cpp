@@ -29,8 +29,10 @@ namespace gui
     }
   }
   
-  Interface::Interface()
-    : fontFace { "resource/font/ocraext.ttf", 72 }
+  Interface::Interface(msg::Messenger & i_messenger)
+    : m_messenger { i_messenger }
+    , m_queue { m_messenger.Register(msg::Filter()) }
+    , fontFace { "resource/font/ocraext.ttf", 72 }
     , m_player {1,0}
     , m_ai {2,0}
     //, root {0,0,900,600,{0,0}}
@@ -67,10 +69,18 @@ namespace gui
     m_shaders.push_back( glt::LoadShaderCode( vertexShader.c_str(), fragmentShader.c_str() ) );
   }
 
-  void Interface::Update(GameData const& i_data)
+  void Interface::Update()
   {
-    m_player = Counter(1,i_data.m_counter1);
-    m_ai = Counter(2,i_data.m_counter2);
+    while (!m_queue->IsEmpty())
+    {
+      auto message = m_queue->GetMessage();
+      switch(message.m_id)
+      {
+        case 1: m_player = message.m_value; break;
+        case 2: m_ai = message.m_value; break;
+        default: ;
+      }
+    }
   }
 
   void Interface::LoadLanguage( Language const& i_language )

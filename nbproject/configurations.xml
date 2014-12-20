@@ -53,6 +53,7 @@
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
             <pElem>../libmatrix/src</pElem>
+            <pElem>../libmessenger/src</pElem>
             <pElem>../libtools/src</pElem>
             <pElem>../libvector/src</pElem>
           </incDir>
@@ -107,6 +108,7 @@
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
             <pElem>../libmatrix/src</pElem>
+            <pElem>../libmessenger/src</pElem>
             <pElem>../libtools/src</pElem>
             <pElem>../libvector/src</pElem>
           </incDir>

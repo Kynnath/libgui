@@ -12,15 +12,16 @@
 
 namespace gui
 {
-    struct Counter
-    {
-        int m_id;
-        int m_value;
-        std::string m_valueString;
+  struct Counter
+  {
+    int m_id;
+    int m_value;
+    std::string m_valueString;
 
-        public:
-            Counter( int const& i_id, int const& i_value );
-    };
+    public:
+      Counter( int const& i_id, int const& i_value );
+      Counter & operator=(int i_value);
+  };
 }
 
 
