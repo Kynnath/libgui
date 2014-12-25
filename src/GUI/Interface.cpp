@@ -71,15 +71,16 @@ namespace gui
 
   void Interface::Update()
   {
-    while (!m_queue->IsEmpty())
+    while (!m_queue.IsEmpty())
     {
-      auto message = m_queue->GetMessage();
+      auto message = m_queue.Front();
       switch(message.m_id)
       {
         case 1: m_player = message.m_value; break;
         case 2: m_ai = message.m_value; break;
         default: ;
       }
+      m_queue.Pop();
     }
   }
 

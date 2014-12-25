@@ -23,7 +23,7 @@ namespace gui
   class Interface
   {
     msg::Messenger & m_messenger;
-    msg::QueueHandle m_queue;
+    msg::Dequeueer m_queue;
     fnt::Face fontFace;
     std::vector<std::u32string> m_labels;
     std::map<std::string, unsigned int> m_identifierPosition;
