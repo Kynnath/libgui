@@ -7,6 +7,7 @@
 
 #include "Interface.hpp"
 
+#include <algorithm>
 #include <fstream>
 #include "CSV/Table.hpp"
 #include "GLT/GeometryTransform.hpp"
@@ -33,13 +34,7 @@ namespace gui
     : m_messenger { i_messenger }
     , m_queue { m_messenger.Register(msg::Filter()) }
     , fontFace { "resource/font/ocraext.ttf", 72 }
-    , m_player {1,0}
-    , m_ai {2,0}
-    //, root {0,0,900,600,{0,0}}
-  {
-    //root.AddChild( {-150, 200, 0, 0, {1,0}} ); // Player score
-    //root.AddChild( { 150, 200, 0, 0, {2,0}} ); // AI score
-  }
+  {}
 
   void Interface::Init()
   {
@@ -67,6 +62,9 @@ namespace gui
       character = static_cast<char>( shaderFile.get() );
     }
     m_shaders.push_back( glt::LoadShaderCode( vertexShader.c_str(), fragmentShader.c_str() ) );
+    
+    m_nodes.push_back({300.f/960.f, 500.f/600.f, {1,0}});
+    m_nodes.push_back({660.f/960.f, 500.f/600.f, {2,0}});
   }
 
   void Interface::Update()
@@ -74,17 +72,20 @@ namespace gui
     while (!m_queue.IsEmpty())
     {
       auto message = m_queue.Front();
-      switch(message.m_id)
+      
+      for (auto & node : m_nodes)
       {
-        case 1: m_player = message.m_value; break;
-        case 2: m_ai = message.m_value; break;
-        default: ;
+        if (message.m_id == node.m_counter.m_id)
+        {
+          node.m_counter = message.m_value;
+          break;
+        }
       }
       m_queue.Pop();
     }
   }
 
-  void Interface::LoadLanguage( Language const& i_language )
+  void Interface::LoadLanguage( Language const& /*i_language*/ )
   {/*
     // Text is stored in a csv file sorted with label first, then
     // localized text in english, then spanish
@@ -101,15 +102,29 @@ namespace gui
 
   void Interface::Draw() const
   {
+    float resolutionX = 960;
+    float resolutionY = 600;
     glUseProgram( m_shaders[0].m_shaderID );
     glt::GeometryTransform geometryTransform;
     geometryTransform.Reset();
-    geometryTransform.DefineOrthographicProjection( 0.0, 960.0, 0.0, 600.0, -1.0, 1.0 );
+    geometryTransform.DefineOrthographicProjection( 0.0, resolutionX, 0.0, resolutionY, -1.0, 1.0 );
     glBindTexture( GL_TEXTURE_2D, fontFace.Texture().Name() );
     glBindVertexArray( fontFace.VertexArray() );
 
-    glt::Frame cursor { { { 300.0f - ( GetLength(m_player.m_valueString,fontFace) / 2.0f ), 500, 0 } }, { { 0, 0, 1 } }, { { 0, 1, 0 } } };
-    for ( auto const& character : m_player.m_valueString )
+    for ( auto const& node : m_nodes)
+    {
+      glt::Frame cursor { { { node.m_coordX * resolutionX - ( GetLength(node.m_counter.m_valueString,fontFace) / 2.0f ), node.m_coordY * resolutionY, 0 } }, { { 0, 0, 1 } }, { { 0, 1, 0 } } };
+      for ( auto const& character : node.m_counter.m_valueString )
+      {
+        fnt::Glyph glyph = fontFace.GlyphData( static_cast<uint32_t>(character) );
+        glUniformMatrix4fv( (GLint)m_shaders.back().m_mvpLocation, 1, GL_FALSE, &geometryTransform.BuildMVPMatrix( cursor ).m_data[0] );
+        glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, glyph.m_indicesOffset );
+        cursor.m_position.Add( { glyph.m_advance, 0.0, 0.0 } );
+      }
+    }
+    
+    /*glt::Frame cursor { { { m_node1.m_coordX * resolutionX - ( GetLength(m_node1.m_counter.m_valueString,fontFace) / 2.0f ), m_node1.m_coordY * resolutionY, 0 } }, { { 0, 0, 1 } }, { { 0, 1, 0 } } };
+    for ( auto const& character : m_node1.m_counter.m_valueString )
     {
       fnt::Glyph glyph = fontFace.GlyphData( static_cast<uint32_t>(character) );
       glUniformMatrix4fv( (GLint)m_shaders.back().m_mvpLocation, 1, GL_FALSE, &geometryTransform.BuildMVPMatrix( cursor ).m_data[0] );
@@ -117,13 +132,13 @@ namespace gui
       cursor.m_position.Add( { glyph.m_advance, 0.0, 0.0 } );
     }
 
-    cursor.m_position = vec::Vector3{ 660.0f - ( GetLength(m_ai.m_valueString,fontFace) / 2.0f ), 500, 0 };
-    for ( auto const& character : m_ai.m_valueString )
+    cursor.m_position = vec::Vector3{ m_node2.m_coordX * resolutionX - ( GetLength(m_node2.m_counter.m_valueString,fontFace) / 2.0f ), m_node2.m_coordY * resolutionY, 0 };
+    for ( auto const& character : m_node2.m_counter.m_valueString )
     {
       fnt::Glyph glyph = fontFace.GlyphData( static_cast<uint32_t>(character) );
       glUniformMatrix4fv( (GLint)m_shaders.back().m_mvpLocation, 1, GL_FALSE, &geometryTransform.BuildMVPMatrix( cursor ).m_data[0] );
       glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, glyph.m_indicesOffset );
       cursor.m_position.Add( { glyph.m_advance, 0.0, 0.0 } );
-    }
+    }*/
   }
 }

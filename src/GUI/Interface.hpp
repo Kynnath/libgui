@@ -19,7 +19,6 @@
 
 namespace gui
 {
-  class GameData;
   class Interface
   {
     msg::Messenger & m_messenger;
@@ -28,9 +27,7 @@ namespace gui
     std::vector<std::u32string> m_labels;
     std::map<std::string, unsigned int> m_identifierPosition;
     std::vector< glt::Shader > m_shaders;
-    Counter m_player;
-    Counter m_ai;
-    /*Node root;*/
+    std::vector<Node> m_nodes;
 
     public:
       Interface(msg::Messenger & i_messenger);

@@ -13,22 +13,13 @@
 
 namespace gui
 {
-    class Node
-    {
-        std::vector<Node> m_children;
-        int m_coordX;
-        int m_coordY;
-        int m_width;
-        int m_height;
-        Counter m_counter;
-
-        public:
-            Node( int const& cX, int const& cY, int const& w, int const& h, Counter const& c );
-            void AddChild( Node const& i_node );
-            void Draw() const;
-    };
+  struct Node
+  {
+    float m_coordX;
+    float m_coordY;
+    Counter m_counter;
+  };
 }
-
 
 #endif	/* NODE_HPP */
 
