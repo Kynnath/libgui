@@ -28,6 +28,25 @@ namespace gui
       }
       return length;
     }
+    
+    int IndexFromName(std::string const& i_name)
+    {
+      if (i_name == "playerScore") return 1;
+      if (i_name == "aiScore") return 2;
+      return 0;
+    }
+  }
+  
+  void Interface::LoadScreen(std::string const& i_filename )
+  {
+    csv::Table table {i_filename};
+    for (auto const& record : table)
+    {
+      if (std::stoi(record[0]) == 0)
+      {
+        m_nodes.push_back({std::stof(record[1]), std::stof(record[2]), {IndexFromName(record[3]),0}});
+      }
+    }
   }
   
   Interface::Interface(msg::Messenger & i_messenger)
@@ -36,8 +55,10 @@ namespace gui
     , fontFace { "resource/font/ocraext.ttf", 72 }
   {}
 
-  void Interface::Init()
+  void Interface::Init(msg::Filter filter, std::vector<int> const& i_commands)
   {
+    m_commands = i_commands;
+    m_commandsFilter = filter;
     char32_t numbers[] =
     {
       '0','1','2','3','4','5','6','7','8','9',0
@@ -63,8 +84,34 @@ namespace gui
     }
     m_shaders.push_back( glt::LoadShaderCode( vertexShader.c_str(), fragmentShader.c_str() ) );
     
-    m_nodes.push_back({300.f/960.f, 500.f/600.f, {1,0}});
-    m_nodes.push_back({660.f/960.f, 500.f/600.f, {2,0}});
+    LoadScreen("resource/gui/scores.csv");
+  }
+  
+  void Interface::ProcessInput(sf::Event c_event)
+  {
+    if ( c_event.type == sf::Event::Closed )
+    {
+      m_messenger.Post( m_commandsFilter,{m_commands[0],1} );
+    }
+    else if ( c_event.type == sf::Event::KeyPressed )
+    {
+      if ( c_event.key.code == sf::Keyboard::Up )
+      {
+        m_messenger.Post( m_commandsFilter,{m_commands[1],1} );
+      }
+      else if ( c_event.key.code == sf::Keyboard::Down )
+      {
+        m_messenger.Post( m_commandsFilter,{m_commands[2],1} );
+      }
+    }
+    else if ( c_event.type == sf::Event::KeyReleased )
+    {
+      if ( c_event.key.code == sf::Keyboard::Up ||
+           c_event.key.code == sf::Keyboard::Down )
+      {
+        m_messenger.Post( m_commandsFilter,{m_commands[3],1} );
+      }
+    }
   }
 
   void Interface::Update()

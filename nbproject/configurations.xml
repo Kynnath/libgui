@@ -49,6 +49,7 @@
           <incDir>
             <pElem>../../../../../lib/freetype-2.5.3/include</pElem>
             <pElem>../../../../../lib/glew-1.11.0/include</pElem>
+            <pElem>../../../../../lib/SFML-2.1/include</pElem>
             <pElem>../libcsv/src</pElem>
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
@@ -104,6 +105,7 @@
           <incDir>
             <pElem>../../../../../lib/freetype-2.5.3/include</pElem>
             <pElem>../../../../../lib/glew-1.11.0/include</pElem>
+            <pElem>../../../../../lib/SFML-2.1/include</pElem>
             <pElem>../libcsv/src</pElem>
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>

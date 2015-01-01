@@ -11,6 +11,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "SFML/Window/Event.hpp"
 #include "FNT/Face.hpp"
 #include "GLT/Shader.hpp"
 #include "MSG/Messenger.hpp"
@@ -28,10 +29,15 @@ namespace gui
     std::map<std::string, unsigned int> m_identifierPosition;
     std::vector< glt::Shader > m_shaders;
     std::vector<Node> m_nodes;
+    std::vector<int> m_commands;
+    msg::Filter m_commandsFilter;
 
+    void LoadScreen(std::string const& i_filename);
+    
     public:
       Interface(msg::Messenger & i_messenger);
-      void Init();
+      void Init(msg::Filter filter, std::vector<int> const& i_commands);
+      void ProcessInput(sf::Event c_event);
       void Update();
       void LoadLanguage( Language const& i_language );
       void Draw() const;
