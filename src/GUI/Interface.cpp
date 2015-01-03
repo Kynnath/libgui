@@ -65,23 +65,12 @@ namespace gui
     };
     fontFace.LoadGlyphs( numbers );
 
-    std::ifstream shaderFile { "resource/shader/Text.vs" };
-    std::string vertexShader;
-    char character = static_cast<char>( shaderFile.get() );
-    while ( shaderFile.good() )
-    {
-      vertexShader += character;
-      character = static_cast<char>( shaderFile.get() );
-    }
-    shaderFile.close();
-    shaderFile.open( "resource/shader/Text.fs" );
-    std::string fragmentShader;
-    character = static_cast<char>( shaderFile.get() );
-    while ( shaderFile.good() )
-    {
-      fragmentShader += character;
-      character = static_cast<char>( shaderFile.get() );
-    }
+    std::ifstream fragmentFile { "resource/shader/Text.fs" };
+    auto const fragmentShader = tls::StringFromFile( fragmentFile );
+
+    std::ifstream vertexFile { "resource/shader/Text.vs" };
+    auto const vertexShader = tls::StringFromFile( vertexFile );
+
     m_shaders.push_back( glt::LoadShaderCode( vertexShader.c_str(), fragmentShader.c_str() ) );
     
     LoadScreen("resource/gui/scores.csv");
