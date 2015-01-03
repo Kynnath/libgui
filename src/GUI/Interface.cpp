@@ -169,23 +169,5 @@ namespace gui
         cursor.m_position.Add( { glyph.m_advance, 0.0, 0.0 } );
       }
     }
-    
-    /*glt::Frame cursor { { { m_node1.m_coordX * resolutionX - ( GetLength(m_node1.m_counter.m_valueString,fontFace) / 2.0f ), m_node1.m_coordY * resolutionY, 0 } }, { { 0, 0, 1 } }, { { 0, 1, 0 } } };
-    for ( auto const& character : m_node1.m_counter.m_valueString )
-    {
-      fnt::Glyph glyph = fontFace.GlyphData( static_cast<uint32_t>(character) );
-      glUniformMatrix4fv( (GLint)m_shaders.back().m_mvpLocation, 1, GL_FALSE, &geometryTransform.BuildMVPMatrix( cursor ).m_data[0] );
-      glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, glyph.m_indicesOffset );
-      cursor.m_position.Add( { glyph.m_advance, 0.0, 0.0 } );
-    }
-
-    cursor.m_position = vec::Vector3{ m_node2.m_coordX * resolutionX - ( GetLength(m_node2.m_counter.m_valueString,fontFace) / 2.0f ), m_node2.m_coordY * resolutionY, 0 };
-    for ( auto const& character : m_node2.m_counter.m_valueString )
-    {
-      fnt::Glyph glyph = fontFace.GlyphData( static_cast<uint32_t>(character) );
-      glUniformMatrix4fv( (GLint)m_shaders.back().m_mvpLocation, 1, GL_FALSE, &geometryTransform.BuildMVPMatrix( cursor ).m_data[0] );
-      glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, glyph.m_indicesOffset );
-      cursor.m_position.Add( { glyph.m_advance, 0.0, 0.0 } );
-    }*/
   }
 }
