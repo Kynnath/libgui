@@ -47,9 +47,9 @@
         <ccTool>
           <architecture>2</architecture>
           <incDir>
-            <pElem>../../../../../lib/freetype-2.5.3/include</pElem>
-            <pElem>../../../../../lib/glew-1.11.0/include</pElem>
-            <pElem>../../../../../lib/SFML-2.1/include</pElem>
+            <pElem>../../../lib/freetype-2.5.5/include</pElem>
+            <pElem>../../../lib/glew-1.12.0/include</pElem>
+            <pElem>../../../lib/SFML-2.2/include</pElem>
             <pElem>../libcsv/src</pElem>
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
@@ -62,7 +62,7 @@
           <preprocessorList>
             <Elem>GLEW_STATIC</Elem>
           </preprocessorList>
-          <warningLevel>2</warningLevel>
+          <warningLevel>3</warningLevel>
         </ccTool>
         <archiverTool>
         </archiverTool>
@@ -103,9 +103,9 @@
           <stripSymbols>true</stripSymbols>
           <architecture>2</architecture>
           <incDir>
-            <pElem>../../../../../lib/freetype-2.5.3/include</pElem>
-            <pElem>../../../../../lib/glew-1.11.0/include</pElem>
-            <pElem>../../../../../lib/SFML-2.1/include</pElem>
+            <pElem>../../../lib/freetype-2.5.5/include</pElem>
+            <pElem>../../../lib/glew-1.12.0/include</pElem>
+            <pElem>../../../lib/SFML-2.2/include</pElem>
             <pElem>../libcsv/src</pElem>
             <pElem>../libfont/src</pElem>
             <pElem>../libgltools/src</pElem>
@@ -118,7 +118,7 @@
           <preprocessorList>
             <Elem>GLEW_STATIC</Elem>
           </preprocessorList>
-          <warningLevel>2</warningLevel>
+          <warningLevel>3</warningLevel>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
